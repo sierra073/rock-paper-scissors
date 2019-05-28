@@ -4,12 +4,41 @@
 
 <script>
 
+const plays = ['Rock', 'Paper', 'Scissors']
+
 function computerPlay() {
-  const plays = ['Rock', 'Paper', 'Scissors'];
   // random number from 0 to 2, to index the plays array with
   let x = Math.floor((Math.random() * 3));
   return plays[x];
 }
+
+function playRound(playerSelection, computerSelection) {
+  let toProperCase = (str) => str[0].toUpperCase() + str.substr(1).toLowerCase();
+  playerSelection = toProperCase(playerSelection);
+  computerSelection = toProperCase(computerSelection);
+
+  let playerIndex = plays.indexOf(playerSelection);
+  let computerIndex = plays.indexOf(computerSelection);
+
+  if (playerSelection == computerSelection) {
+    return "It's a tie!";
+  }
+  else if ((playerIndex == 0 && computerIndex == 2) || (playerIndex > 0 && playerIndex == computerIndex + 1)) {
+    return "You Win! " + playerSelection + " beats " + computerSelection;
+  }
+  else {
+    return "You Lose! " + computerSelection + " beats " + playerSelection;
+  }
+
+}
+
+const playerSelection = 'scissors'
+let computerSelection1 = computerPlay()
+console.log("vs. " + computerSelection1)
+console.log(playRound(playerSelection, computerSelection1))
+let computerSelection2 = computerPlay()
+console.log("vs. " + computerSelection2)
+console.log(playRound(playerSelection, computerSelection2))
 
 </script>
 
