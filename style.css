@@ -21,17 +21,11 @@ h3 {
   justify-content: center;
   margin-bottom: 12px;
 }
-#player-names {
+#player-container, #computer-container {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: center;
   margin-top: 12px;
-}
-.player-name {
-  margin-left: 22vw;
-}
-.computer-name {
-  margin-right: 19.5vw;
 }
 .row-even {
   display: flex;
@@ -57,6 +51,7 @@ h3 {
   outline: none;
 }
 .play-option-played {
+  margin-top: 88px;
   visibility: hidden;
 }
 .play-option-button:hover {background-color: darkgrey}
@@ -66,14 +61,5 @@ h3 {
 }
 .win-text {
   font-size: 20px;
-  color: white;
-}
-.win-text-won {
-  color: #3cb371;
-}
-.win-text-lost {
-  color: red;
-}
-.win-text-tied {
-  color: black;
+  margin: 0;
 }

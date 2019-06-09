@@ -71,14 +71,23 @@ function updateScore(scoreId) {
 }
 
 function displayResult(playerScore, computerScore) {
+  let resultDiv = document.querySelector('#final-score');
+  let result = document.createElement('p');
+  result.classList.add("win-text")
   if (playerScore == computerScore) {
-  console.log("You tied the game! :|")
+    result.textContent = "You tied the game 😐"
+    result.style.color = 'darkgrey'
+    resultDiv.appendChild(result);
   }
   else if (playerScore > computerScore) {
-    console.log("You won the game! :) ")
+    result.textContent = "You won the game! 😄"
+    result.style.color = '#3cb371'
+    resultDiv.appendChild(result);
   }
   else {
-    console.log("You lost the game! :( ")
+    result.textContent = "You lost the game 😔"
+    result.style.color = 'red'
+    resultDiv.appendChild(result);
   }
 }
 
