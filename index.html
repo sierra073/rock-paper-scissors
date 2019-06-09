@@ -1,73 +1,43 @@
 <!DOCTYPE html>
 <html>
-<body>
-
-<script>
-
-const plays = ['Rock', 'Paper', 'Scissors']
-
-function computerPlay() {
-  // random number from 0 to 2, to index the plays array with
-  let x = Math.floor((Math.random() * 3));
-  return plays[x];
-}
-
-function playRound(playerSelection, computerSelection) {
-  let toProperCase = (str) => str[0].toUpperCase() + str.substr(1).toLowerCase();
-  playerSelection = toProperCase(playerSelection);
-  computerSelection = toProperCase(computerSelection);
-
-  let playerIndex = plays.indexOf(playerSelection);
-  let computerIndex = plays.indexOf(computerSelection);
-
-  if (playerSelection == computerSelection) {
-    return "It's a tie!";
-  }
-  else if ((playerIndex == 0 && computerIndex == 2) || (playerIndex > 0 && playerIndex == computerIndex + 1)) {
-    return "You Win! " + playerSelection + " beats " + computerSelection;
-  }
-  else {
-    return "You Lose! " + computerSelection + " beats " + playerSelection;
-  }
-
-}
-
-function game() {
-  let round = 1;
-  let playerScore = 0;
-  let computerScore = 0;
-
-  while (round <= 5) {
-    console.log(round)
-    let playerSelection = prompt("Let's play Rock, Paper, Scissors! Type your play here:");
-    let computerSelection = computerPlay();
-    console.log("vs. " + computerSelection)
-    result = playRound(playerSelection, computerSelection);
-    console.log(result)
-    if (result.includes("Win")) {
-      playerScore ++;
-    }
-    else if (result.includes("Lose")) {
-      computerScore ++;
-    }
-    round ++;
-  }
-
-  if (playerScore == computerScore) {
-    console.log("You tied the game! " + playerScore + ":" + computerScore)
-  }
-  else if (playerScore > computerScore) {
-    console.log("You won the game! :) " + playerScore + ":" + computerScore)
-  }
-  else {
-    console.log("You lost the game! :( " + playerScore + ":" + computerScore)
-  }
-
-}
-
-game()
-
-</script>
-
-</body>
+  <head>
+    <meta charset="UTF-8">
+    <title>Rock Paper Scissors Game</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div id="title-container">
+      <div><h1>Rock Paper Scissors</h1></div>
+      <div><h3>First to 5 wins!</h3></div>
+    </div>
+    <div id="player-names">
+      <div class="player-name"><h2>You</h2></div>
+      <div class="computer-name"><h2>Computer</h2></div>
+    </div>
+    <div class="row-even">
+        <div id="player-container" class="row-even">
+          <button id="user-rock" class="play-option-button">👊</button>
+          <button id="user-paper" class="play-option-button">✋</button>
+          <button id="user-scissors" class="play-option-button">✌️</button>
+        </div>
+        <div id="play-container" class="row-even">
+          <div class="play-option-played">x</div>
+          <div class="play-option-played">y</div>
+        </div>
+        <div id="computer-container" class="row-even">
+          <div class="play-option">👊🏿</div>
+          <div class="play-option">✋🏿</div>
+          <div class="play-option">✌🏿</div>
+        </div>
+    </div>
+    <div class="row-even">
+      <h3>Score</h3>
+    </div>
+    <div class="row-center">
+        <div id="player-score" class="score-text">0</div>
+        <div class="score-text-colon">:</div>
+        <div id="computer-score" class="score-text">0</div>
+    </div>
+  </body>
+  <script src="script.js"></script>
 </html>
